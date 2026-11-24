@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo — Gestão de Processos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topo">
+        <div>
+            <p class="marca">FLUXO</p>
+            <h1>Gestão de processos</h1>
+            <p class="subtitulo">Organize solicitações, acompanhe prazos e mantenha tudo sob controle.</p>
+        </div>
+        <div class="topo-status">
+            <span class="status-ponto"></span>
+            <span>Ambiente de demonstração</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="resumo">
+            <article class="cartao-resumo">
+                <p>Total de processos</p>
+                <strong id="totalProcessos">0</strong>
+            </article>
+            <article class="cartao-resumo">
+                <p>Em andamento</p>
+                <strong id="emAndamento">0</strong>
+            </article>
+            <article class="cartao-resumo">
+                <p>Concluídos</p>
+                <strong id="concluidos">0</strong>
+            </article>
+            <article class="cartao-resumo">
+                <p>Atrasados</p>
+                <strong id="atrasados">0</strong>
+            </article>
+        </section>
+
+        <section class="painel">
+            <div class="painel-cabecalho">
+                <div>
+                    <p class="etiqueta">CONTROLE OPERACIONAL</p>
+                    <h2>Processos cadastrados</h2>
+                </div>
+                <button id="novoProcesso" class="botao-principal" type="button">+ Novo processo</button>
+            </div>
+
+            <div class="filtros">
+                <input id="pesquisa" type="text" placeholder="Buscar por processo, responsável ou setor">
+                <select id="filtroStatus">
+                    <option value="">Todos os status</option>
+                    <option value="Pendente">Pendente</option>
+                    <option value="Em andamento">Em andamento</option>
+                    <option value="Concluído">Concluído</option>
+                    <option value="Cancelado">Cancelado</option>
+                </select>
+            </div>
+
+            <div class="tabela-area">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Processo</th>
+                            <th>Responsável</th>
+                            <th>Setor</th>
+                            <th>Prioridade</th>
+                            <th>Prazo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaProcessos"></tbody>
+                </table>
+                <p id="mensagemVazia" class="mensagem-vazia">Nenhum processo cadastrado. Clique em “Novo processo” para começar.</p>
+            </div>
+        </section>
+
+        <section id="formularioArea" class="painel formulario-area escondido">
+            <div class="painel-cabecalho">
+                <div>
+                    <p class="etiqueta">CADASTRO</p>
+                    <h2 id="tituloFormulario">Novo processo</h2>
+                </div>
+                <button id="fecharFormulario" class="botao-secundario" type="button">Fechar</button>
+            </div>
+
+            <div class="formulario">
+                <label>
+                    Nome do processo
+                    <input id="nome" type="text" placeholder="Ex.: Solicitação de compra">
+                </label>
+                <label>
+                    Responsável
+                    <input id="responsavel" type="text" placeholder="Nome do responsável">
+                </label>
+                <label>
+                    Setor
+                    <input id="setor" type="text" placeholder="Ex.: Administrativo">
+                </label>
+                <label>
+                    Prioridade
+                    <select id="prioridade">
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média" selected>Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </label>
+                <label>
+                    Prazo
+                    <input id="prazo" type="date">
+                </label>
+                <label>
+                    Status
+                    <select id="status">
+                        <option value="Pendente">Pendente</option>
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Concluído">Concluído</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </label>
+                <label class="campo-largo">
+                    Descrição
+                    <textarea id="descricao" rows="3" placeholder="Descreva brevemente a solicitação"></textarea>
+                </label>
+            </div>
+            <p id="avisoFormulario" class="aviso"></p>
+            <div class="acoes-formulario">
+                <button id="salvarProcesso" class="botao-principal" type="button">Salvar processo</button>
+                <button id="cancelarFormulario" class="botao-secundario" type="button">Cancelar</button>
+            </div>
+        </section>
+        <footer>Fluxo • Protótipo de gestão interna de processos</footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
